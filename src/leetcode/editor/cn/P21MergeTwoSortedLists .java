@@ -36,45 +36,48 @@
 
 package leetcode.editor.cn;
 //java:合并两个有序链表
-class P21MergeTwoSortedLists{
-    public static void main(String[] args){
-        Solution solution = new P21MergeTwoSortedLists().new Solution();
-    }
-    //leetcode submit region begin(Prohibit modification and deletion)
 
-// Definition for singly-linked list.
-public class ListNode {
+class ListNode {
     int val;
     ListNode next;
     ListNode() {}
     ListNode(int val) { this.val = val; }
     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-}
 
-class Solution {
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-         ListNode newHead = new ListNode(-1);
-         ListNode tmp = newHead;
-         while (list1 != null && list2 != null) {
-             if (list1.val < list2.val) {
-                 tmp.next = list1;
-                 tmp = tmp.next;
-                 list1 = list1.next;
-             } else {
-                 tmp.next = list2;
-                 tmp = tmp.next;
-                 list2 = list2.next;
-             }
-         }
-         if (list1 != null) {
-             tmp.next = list1;
-         }
-         if (list2 != null) {
-             tmp.next = list2;
-         }
-         return newHead.next;
+public static class P21MergeTwoSortedLists {
+    public static void main(String[] args) {
+        Solution solution = new P21MergeTwoSortedLists().new Solution();
     }
-}
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region begin(Prohibit modification and deletion)
 
+// Definition for singly-linked list.
+
+
+    class Solution {
+        public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+            ListNode newHead = new ListNode(-1);
+            ListNode tmp = newHead;
+            while (list1 != null && list2 != null) {
+                if (list1.val < list2.val) {
+                    tmp.next = list1;
+                    tmp = tmp.next;
+                    list1 = list1.next;
+                } else {
+                    tmp.next = list2;
+                    tmp = tmp.next;
+                    list2 = list2.next;
+                }
+            }
+            if (list1 != null) {
+                tmp.next = list1;
+            }
+            if (list2 != null) {
+                tmp.next = list2;
+            }
+            return newHead.next;
+        }
+    }
+//leetcode submit region end(Prohibit modification and deletion)
 }
+}
+
