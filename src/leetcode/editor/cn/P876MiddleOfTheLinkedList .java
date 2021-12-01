@@ -34,7 +34,7 @@
 
 package leetcode.editor.cn;
 //java:链表的中间结点
-public class P876MiddleOfTheLinkedList{
+class P876MiddleOfTheLinkedList{
     public static void main(String[] args){
         Solution solution = new P876MiddleOfTheLinkedList().new Solution();
     }
