@@ -38,25 +38,71 @@ class P696CountBinarySubstrings{
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-//    public int countBinarySubstrings(String s) {
+    public int countBinarySubstrings(String s) {
+/*        int res = 0;
+        char[] chars = s.toCharArray();
+        int a = 0;
+        int b = 0;
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] == '0') {
+                a++;
+                if (i + 1 < s.length()) {
+                    if (chars[i + 1] != '0') {
+                        if (b != 0) {
+                            int min = Math.min(a, b);
+                            res += min;
+                            b = 0;
+                        }
+                    }
+                } else {
+                    if (b != 0) {
+                        int min = Math.min(a, b);
+                        res += min;
+                        b = 0;
+                    }
+                }
+            } else {
+                b++;
+                if (i + 1 < s.length()) {
+                    if (chars[i + 1] != '1') {
+                        if (a != 0) {
+                            int min = Math.min(a, b);
+                            res += min;
+                            a = 0;
+                        }
+                    }
+                } else {
+                    if (a != 0) {
+                        int min = Math.min(a, b);
+                        res += min;
+                        a = 0;
+                    }
+                }
+            }
+        }
+        return res;
+    }*/
+        //下面是我写的代码： 结果超时了！！
 //        if (s.length() == 1) {
 //            return 0;
 //        }
 //        int times = 0;
-//        for (int i = 0; i < s.length()-2; i++) {
+//        char[] chars = s.toCharArray();
+//        for (int i = 0; i < s.length()-1; i++) {
 //            int count0 = 0;
 //            int count1 = 0;
-//            char ch1 = s.charAt(i);
+//
+//            char ch1 = chars[i];
 //            if ("0".equals(ch1+"")) {
 //                int j = i;
-//                while ("0".equals(s.charAt(j)+"")) {
+//                while ("0".equals(chars[j]+"")) {
 //                    count0++;
 //                    j++;
 //                    if (j == s.length()) {
-//                        break;
+//                        return times;
 //                    }
 //                }
-//                while ("1".equals(s.charAt(j)+"")) {
+//                while ("1".equals(chars[j]+"")) {
 //                    count1++;
 //                    if (count0 == count1) {
 //                        times++;
@@ -69,14 +115,14 @@ class Solution {
 //                }
 //            }else {
 //                int j = i;
-//                while ("1".equals(s.charAt(j)+"")) {
+//                while ("1".equals(chars[j]+"")) {
 //                    count1++;
 //                    j++;
 //                    if (j == s.length()) {
-//                        break;
+//                        return times;
 //                    }
 //                }
-//                while ("0".equals(s.charAt(j)+"")) {
+//                while ("0".equals(chars[j]+"")) {
 //                    count0++;
 //                    if (count0 == count1) {
 //                        times++;
@@ -89,13 +135,9 @@ class Solution {
 //                }
 //            }
 //        }
-//        if (!(s.charAt(s.length()-2)+"").equals(s.charAt(s.length()-1)+"")) {
-//            times++;
-//        }
-//
 //        return times;
 //    }
-//}
+}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
