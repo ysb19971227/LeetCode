@@ -58,6 +58,9 @@
 // Related Topics 栈 双指针 字符串 模拟 👍 349 👎 0
 
 package leetcode.editor.cn;
+
+import java.util.Stack;
+
 //java:比较含退格的字符串
 public class P844BackspaceStringCompare{
     public static void main(String[] args){
@@ -66,23 +69,43 @@ public class P844BackspaceStringCompare{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
         public boolean backspaceCompare(String s, String t) {
-            return end(s).equals(end(t));
+            //使用栈的方法进行结题
+            return fun(s).equals(fun(t));
         }
 
-        public String end(String s) {
-            char[] sc = s.toCharArray();
-            int stack = 0;
-            for(int i = 0; i < sc.length;i++) {
-                if(sc[i] != '#') {
-                    sc[stack++] = sc[i];
+        public String fun(String s) {
+            Stack<Character> stack = new Stack<>();
+            char[] chars = s.toCharArray();
+            for (int i = 0; i < chars.length; i++) {
+                if (chars[i] != '#') {
+                    stack.push(chars[i]);
                 }else {
-                    if(stack !=0){
-                        stack--;
+                    if (!stack.empty()) {
+                        stack.pop();
                     }
                 }
             }
-            return (new String(sc)).substring(0,stack);
+            //如何将栈里面的字母变成字符串
+            return (String.valueOf(stack));
         }
+//        public boolean backspaceCompare(String s, String t) {
+//            return end(s).equals(end(t));
+//        }
+//
+//        public String end(String s) {
+//            char[] sc = s.toCharArray();
+//            int stack = 0;
+//            for(int i = 0; i < sc.length;i++) {
+//                if(sc[i] != '#') {
+//                    sc[stack++] = sc[i];
+//                }else {
+//                    if(stack !=0){
+//                        stack--;
+//                    }
+//                }
+//            }
+//            return (new String(sc)).substring(0,stack);
+//        }
 
 }
 //leetcode submit region end(Prohibit modification and deletion)
