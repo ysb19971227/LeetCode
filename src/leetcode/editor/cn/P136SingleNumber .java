@@ -17,6 +17,10 @@
 // Related Topics 位运算 数组 👍 2132 👎 0
 
 package leetcode.editor.cn;
+
+import java.util.HashSet;
+import java.util.Iterator;
+
 //java:只出现一次的数字
 public class P136SingleNumber{
     public static void main(String[] args){
@@ -24,14 +28,28 @@ public class P136SingleNumber{
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    public int singleNumber(int[] nums) {
-        //使用异或  相同则为0，相异则为1
-        int ret = nums[0];
-        for (int i = 1; i < nums.length; i++) {
-             ret = nums[i] ^ ret;
+        public int singleNumber(int[] nums) {
+            HashSet<Integer> hashSet = new HashSet<>();
+            for (int x:nums) {
+                if (hashSet.contains(x)) {
+                    hashSet.remove(x);
+                }else {
+                    hashSet.add(x);
+                }
+            }
+            Iterator<Integer> integers = hashSet.iterator();
+            int ret = integers.next();
+            return ret;
         }
-        return ret;
-    }
+
+//    public int singleNumber(int[] nums) {
+//        //使用异或  相同则为0，相异则为1
+//        int ret = nums[0];
+//        for (int i = 1; i < nums.length; i++) {
+//             ret = nums[i] ^ ret;
+//        }
+//        return ret;
+//    }
 }
 //leetcode submit region end(Prohibit modification and deletion)
 
